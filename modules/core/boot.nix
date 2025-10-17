@@ -23,18 +23,20 @@
         device = "nodev";
         efiSupport = true;
         useOSProber = true;
-        gfxmodeEfi = "2715x1527"; # for 4k: 3840x2160
-        gfxmodeBios = "2715x1527"; # for 4k: 3840x2160
+        gfxmodeEfi = "1920x1080"; # for 4k: 3840x2160
+        gfxmodeBios = "1920x1080"; # for 4k: 3840x2160
         theme = pkgs.stdenv.mkDerivation {
-          pname = "distro-grub-themes";
-          version = "3.1";
+          pname = "lain-grub-theme";
+          version = "1.0.1";
           src = pkgs.fetchFromGitHub {
-            owner = "AdisonCavani";
-            repo = "distro-grub-themes";
-            rev = "v3.1";
-            hash = "sha256-ZcoGbbOMDDwjLhsvs77C7G7vINQnprdfI37a9ccrmPs=";
+            owner = "uiriansan";
+            repo = "LainGrubTheme";
+            rev = "1cf38e3"; # latest commit hash, use release tag if preferred
+            hash = "sha256-gDwNolJ28UQUjE2G2U0bvzh29E9EEiet9SlItbY46IQ=";
           };
-          installPhase = "cp -r customize/nixos $out";
+          installPhase = ''
+            cp -r lain $out
+          '';
         };
       };
     };
