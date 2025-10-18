@@ -46,6 +46,7 @@ in
     ../../modules/programs/cli/btop
     ../../modules/programs/media/discord
     ../../modules/programs/media/spicetify
+    ../../modules/programs/media/localsend
     # ../../modules/programs/media/youtube-music
     # ../../modules/programs/media/thunderbird
     # ../../modules/programs/media/obs-studio

@@ -11,6 +11,7 @@
     bat
     zoxide
     ayugram-desktop
+    localsend
     # pokego # Overlayed
   ];
 }
