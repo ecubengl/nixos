@@ -8,6 +8,8 @@
     neovim
     vim
     fastfetch
+    bat
+    zoxide
     # pokego # Overlayed
   ];
 }
