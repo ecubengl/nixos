@@ -11,9 +11,11 @@
   sddmTheme = "astronaut"; # Options: astronaut, black_hole, purple_leaves, jake_the_dog, hyprland_kath
   defaultWallpaper = "kurzgesagt.webp"; # to change wallpaper: SUPER + SHIFT + W
   hyprlockWallpaper = "evening-sky.webp"; # See modules/themes/wallpapers for options
-  #todo figure out fish
   shell = "fish"; # Options: fish, zsh, bash
   games = true; # Whether to enable the gaming module
+
+  # my custom vars
+  bluetoothPowerOnBoot = false; # Whether bluetooth should be powered on boot
 
   # Hardware Configuration
   videoDriver = "intel"; # CRITICAL: Choose your GPU driver (nvidia, amdgpu, intel)

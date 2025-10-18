@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ pkgs, vars, ... }:
 {
   hardware = {
     sane = {
@@ -13,7 +13,7 @@
     keyboard.qmk.enable = true;
     bluetooth = {
       enable = true;
-      powerOnBoot = true;
+      powerOnBoot = (vars.bluetoothPowerOnBoot);
       settings.General.Experimental = true;
     };
   };

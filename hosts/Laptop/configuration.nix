@@ -3,6 +3,9 @@ let
   vars = import ./variables.nix;
 in
 {
+  # Pass variables to core modules
+  _module.args = { inherit vars; };
+
   imports = [
     ./hardware-configuration.nix
     ./host-packages.nix
