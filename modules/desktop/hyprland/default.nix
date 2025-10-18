@@ -282,10 +282,13 @@ in
                 # "workspace 3, title:(.*)(Godot)(.*)$"
                 # "workspace 3, title:(GNU Image Manipulation Program)(.*)$"
                 # "workspace 3, class:^(factorio)$"
-                # "workspace 3, class:^(steam)$"
-                # "workspace 5, class:^(firefox|floorp|zen)$"
-                # "workspace 6, class:^(Spotify)$"
-                # "workspace 6, title:(.*)(Spotify)(.*)$"
+                "workspace 8, class:^(steam)$"
+                "workspace 3, class:^(firefox|floorp|zen|librewolf)$"
+                "workspace 6, title:(.*)(discord)(.*)$"
+                "workspace 7, title:(.*)(ayugram)(.*)$"
+
+                "workspace 9, class:^(Spotify)$"
+                "workspace 9, title:(.*)(Spotify)(.*)$"
 
                 # Can use FLOAT FLOAT for active and inactive or just FLOAT
                 "opacity 0.80 0.80,class:^(kitty|alacritty|Alacritty|org.wezfurlong.wezterm)$"
