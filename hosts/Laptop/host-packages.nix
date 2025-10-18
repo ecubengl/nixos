@@ -10,6 +10,7 @@
     fastfetch
     bat
     zoxide
+    ayugram-desktop
     # pokego # Overlayed
   ];
 }

@@ -132,7 +132,7 @@ in
 
   # Permissions
   # 0=always ask (default), 1=allow, 2=block
-  "permissions.default.geo" = 2;
+  "permissions.default.geo" = 0;
   "permissions.default.camera" = 2;
   "permissions.default.microphone" = 0;
   "permissions.default.desktop-notification" = 2;

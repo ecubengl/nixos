@@ -62,7 +62,7 @@
   };
   Preferences = {
     "browser.tabs.warnOnClose" = {
-      Value = false;
+      Value = true;
     };
   };
   PromptForDownloadLocation = true;
