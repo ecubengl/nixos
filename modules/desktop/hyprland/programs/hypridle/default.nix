@@ -7,15 +7,18 @@
         settings = {
           general = {
             ignore_dbus_inhibit = false;
-            lock_cmd = "pidof hyprlock || hyprlock";
+            # added ot switch keyboard layout on lid control
+            lock_cmd = "hyprctl switchxkblayout all 0 | pidof hyprlock || hyprlock";
             unlock_cmd = "pkill --signal SIGUSR1 hyprlock";
-            before_sleep_cmd = "loginctl lock-session";
+            # added to switch keyboard layout on sleep control
+            before_sleep_cmd = "hyprctl switchxkblayout all 0 | loginctl lock-session";
             after_sleep_cmd = "hyprctl dispatch dpms on";
           };
           listener = [
             {
               timeout = 300; # 5 Minutes
-              on-timeout = "loginctl lock-session";
+              # added to switch keyboard layout on lock screen
+              on-timeout = "hyprctl switchxkblayout all 0 | loginctl lock-session";
             }
             /*
               {

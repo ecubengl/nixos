@@ -13,8 +13,8 @@ fi
 # }
 get_nix_value() {
     awk '
-    /settings = {/ {inside_settings=1; next} 
-    inside_settings && /}/ {inside_settings=0} 
+    /settings = {/ {inside_settings=1; next}
+    inside_settings && /}/ {inside_settings=0}
     inside_settings && $0 ~ key {print gensub(/.*"([^"]+)".*/, "\\1", "g", $0)}
     ' key="$1" "$HOME/NixOS/flake.nix"
 }
@@ -73,7 +73,7 @@ yad \
   "SUPER W" "Toggle floating window" "togglefloating" \
   "SUPER SHIFT G" "Toggle window group" "togglegroup" \
   "ALT Return" "Toggle fullscreen" "fullscreen" \
-  "SUPER ALT L" "Lock screen" "hyprlock" \
+  "SUPER ALT L" "Lock screen" "hyprctl switchxkblayout all 0 | hyprlock" \
   "SUPER Backspace" "Power menu" "wlogout -b 4" \
   "CTRL Escape" "Toggle Waybar" "pkill waybar || waybar" \
   "SUPER SHIFT N" "Open notification panel" "swaync-client -t -sw" \
