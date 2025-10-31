@@ -84,7 +84,7 @@ in
             playerctl
             waybar
             wtype
-            wl-clipboard
+            wl-clipboard-rs
             xdotool
             yad
             # socat # for and autowaybar.sh
