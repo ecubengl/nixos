@@ -1,4 +1,4 @@
-{ lib, ... }:
+{ lib, inputs, ... }:
 let
   vars = import ./variables.nix;
 in
@@ -11,6 +11,8 @@ in
     ./host-packages.nix
 
     # Core Modules (Don't change unless you know what you're doing)
+    # ../../modules/core/plymouth.nix
+    inputs.nixos-plymouth.nixosModules.default
     ../../modules/scripts
     ../../modules/core/boot.nix
     ../../modules/core/fish.nix
@@ -57,6 +59,8 @@ in
     ../../modules/programs/misc/tlp
     ../../modules/programs/misc/thunar
     ../../modules/programs/misc/lact # GPU fan, clock and power configuration
+    ../../modules/programs/media/aichat
+
   ]
   ++ lib.optional (vars.games == true) ../../modules/core/games.nix;
 }

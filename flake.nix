@@ -52,6 +52,22 @@
       url = "github:kaylorben/nixcord";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    # plymouth config
+    nixos-plymouth = {
+      url = "github:BeatLink/nixos-plymouth";
+      # inputs.nixpkgs.follows = "nixpkgs";
+    };
+
+    niri = {
+      url = "github:YaLTeR/niri";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
+    thorium = {
+      url = "github:Rishabh5321/thorium_flake";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
   };
 
   outputs =
@@ -71,6 +87,7 @@
         host:
         nixpkgs.lib.nixosSystem {
           # inherit system;
+          # inherit nixos-plymouth;
           system = forAllSystems (system: system);
           modules = [
             ./hosts/${host}/configuration.nix

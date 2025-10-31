@@ -232,6 +232,27 @@
         "type": "github"
       }
     },
+    "niri": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ],
+        "rust-overlay": "rust-overlay"
+      },
+      "locked": {
+        "lastModified": 1761460429,
+        "narHash": "sha256-pJeM23DGMD5AK4gdNaDM1qsIv87NYQJgEh2E8tRd7es=",
+        "owner": "YaLTeR",
+        "repo": "niri",
+        "rev": "e6f3c538da0c646bda43fcde7ef7dc3b771e0c8b",
+        "type": "github"
+      },
+      "original": {
+        "owner": "YaLTeR",
+        "repo": "niri",
+        "type": "github"
+      }
+    },
     "nix-flatpak": {
       "locked": {
         "lastModified": 1739444422,
@@ -287,6 +308,21 @@
       "original": {
         "owner": "kaylorben",
         "repo": "nixcord",
+        "type": "github"
+      }
+    },
+    "nixos-plymouth": {
+      "locked": {
+        "lastModified": 1758476321,
+        "narHash": "sha256-kP9fSJxZO4vHn9kL3o9h1yxKxUvON/1yvlNIYSH5yq0=",
+        "owner": "BeatLink",
+        "repo": "nixos-plymouth",
+        "rev": "33b308bfc0e9411e5c96bc114b9f7e83e7c7fd2c",
+        "type": "github"
+      },
+      "original": {
+        "owner": "BeatLink",
+        "repo": "nixos-plymouth",
         "type": "github"
       }
     },
@@ -537,9 +573,11 @@
         "betterfox": "betterfox",
         "home-manager": "home-manager",
         "neovim": "neovim",
+        "niri": "niri",
         "nix-flatpak": "nix-flatpak",
         "nix-index-database": "nix-index-database",
         "nixcord": "nixcord",
+        "nixos-plymouth": "nixos-plymouth",
         "nixpkgs": "nixpkgs",
         "nixpkgs-stable": "nixpkgs-stable",
         "nixvim": "nixvim",
@@ -547,8 +585,30 @@
         "nvchad4nix": "nvchad4nix",
         "plasma-manager": "plasma-manager",
         "spicetify-nix": "spicetify-nix",
+        "thorium": "thorium",
         "thunderbird-catppuccin": "thunderbird-catppuccin",
         "zen-browser": "zen-browser"
+      }
+    },
+    "rust-overlay": {
+      "inputs": {
+        "nixpkgs": [
+          "niri",
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1757989933,
+        "narHash": "sha256-9cpKYWWPCFhgwQTww8S94rTXgg8Q8ydFv9fXM6I8xQM=",
+        "owner": "oxalica",
+        "repo": "rust-overlay",
+        "rev": "8249aa3442fb9b45e615a35f39eca2fe5510d7c3",
+        "type": "github"
+      },
+      "original": {
+        "owner": "oxalica",
+        "repo": "rust-overlay",
+        "type": "github"
       }
     },
     "spicetify-nix": {
@@ -629,6 +689,26 @@
       "original": {
         "owner": "nix-systems",
         "repo": "default",
+        "type": "github"
+      }
+    },
+    "thorium": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1761789983,
+        "narHash": "sha256-xG3JHtAhVLxgjpUwJZ76vfJPdqR8QcbvV05HTihJsoo=",
+        "owner": "Rishabh5321",
+        "repo": "thorium_flake",
+        "rev": "827f09d56fb75ca2f766a7273e2c7dd75ab9b327",
+        "type": "github"
+      },
+      "original": {
+        "owner": "Rishabh5321",
+        "repo": "thorium_flake",
         "type": "github"
       }
     },

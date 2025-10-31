@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ pkgs, inputs, ... }:
 {
   environment.systemPackages = with pkgs; [
     obsidian
@@ -13,5 +13,6 @@
     ayugram-desktop
     localsend
     # pokego # Overlayed
+    inputs.thorium.packages.x86_64-linux.thorium-avx
   ];
 }
