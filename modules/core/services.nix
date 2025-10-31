@@ -8,6 +8,12 @@
     gvfs.enable = true; # For Mounting USB & More
     udisks2.enable = true; # For Mounting USB & More
 
+    tlp = {
+      enable  = true;
+      
+    };
+
+
     # Userspace CPU Scheduler for Improved Latency for Gaming (Hardware Specific)
     # services.scx = {
     #   enable = true;
