@@ -5,6 +5,37 @@ in
 {
   home-manager.sharedModules = [
     (_: {
+      home.file.".config/waybar/toggles_menu.xml" = {
+        text = ''<?xml version="1.0" encoding="UTF-8"?>
+<interface>
+  <object class="GtkMenu" id="menu">
+    <child>
+      <object class="GtkMenuItem" id="speaker_mute">
+        <property name="label">Speaker mute</property>
+      </object>
+    </child>
+    <child>
+      <object class="GtkMenuItem" id="mic_mute">
+        <property name="label">Mic mute</property>
+      </object>
+    </child>
+    <child>
+      <object class="GtkSeparatorMenuItem" id="sep1" />
+    </child>
+    <child>
+      <object class="GtkMenuItem" id="power_mode">
+        <property name="label">Toggle power mode</property>
+      </object>
+    </child>
+    <child>
+      <object class="GtkMenuItem" id="gamemode">
+        <property name="label">Toggle gamemode</property>
+      </object>
+    </child>
+  </object>
+</interface>
+'';
+      };
       programs.waybar = {
         enable = true;
         systemd = {
@@ -42,6 +73,7 @@ in
               "memory"
               "backlight"
               "pulseaudio"
+              "custom/toggles_menu"
               "network"
               "bluetooth"
               "tray"
@@ -313,6 +345,42 @@ in
               };
             };
 
+            # Toggle mute for speakers (pamixer)
+            "custom/pamixer_mute" = {
+              format = "{}";
+              tooltip = true;
+              signal = 11;
+              exec = ''sh -c '${pkgs.pamixer}/bin/pamixer --get-mute | grep -q true && echo "" || echo ""' '';
+              on-click = ''sh -c '${pkgs.pamixer}/bin/pamixer -t; ${pkgs.procps}/bin/pkill -RTMIN+11 waybar' '';
+            };
+
+            # Toggle mute for microphone (pamixer --default-source)
+            "custom/mic_mute" = {
+              format = "{}";
+              tooltip = true;
+              signal = 12;
+              exec = ''sh -c '${pkgs.pamixer}/bin/pamixer --default-source --get-mute | grep -q true && echo "" || echo ""' '';
+              on-click = ''sh -c '${pkgs.pamixer}/bin/pamixer --default-source -t; ${pkgs.procps}/bin/pkill -RTMIN+12 waybar' '';
+            };
+
+            # Toggle power mode via TogglePowerMode.sh
+            "custom/power_mode" = {
+              format = "{}";
+              tooltip = true;
+              signal = 13;
+              exec = ''sh -c 'MODE_FILE="$HOME/.config/hypr/power_mode"; [ -f "$MODE_FILE" ] && grep -q "^powersave$" "$MODE_FILE" && echo "" || echo ""' '';
+              on-click = ''sh -c '${../../scripts/TogglePowerMode.sh}; ${pkgs.procps}/bin/pkill -RTMIN+13 waybar' '';
+            };
+
+            # Toggle Hyprland Game Mode
+            "custom/gamemode" = {
+              format = "{}";
+              tooltip = true;
+              signal = 14;
+              exec = ''sh -c 'hyprctl getoption animations:enabled | grep -q "int: 1" && echo "" || echo ""' '';
+              on-click = ''sh -c '${../../scripts/gamemode.sh}; ${pkgs.procps}/bin/pkill -RTMIN+14 waybar' '';
+            };
+
             "pulseaudio#microphone" = {
               format = "{format_source}";
               format-source = " {volume}%";
@@ -358,6 +426,20 @@ in
               on-click = "wlogout -b 4";
               interval = 86400; # once every day
               tooltip = true;
+            };
+
+            # Popup menu with quick toggles (separate window below the bar)
+            "custom/toggles_menu" = {
+              format = "";
+              tooltip = false;
+              menu = "on-click";
+              menu-file = "~/.config/waybar/toggles_menu.xml";
+              menu-actions = {
+                speaker_mute = "${pkgs.pamixer}/bin/pamixer -t";
+                mic_mute = "${pkgs.pamixer}/bin/pamixer --default-source -t";
+                power_mode = "${../../scripts/TogglePowerMode.sh}";
+                gamemode = "${../../scripts/gamemode.sh}";
+              };
             };
           }
         ];
@@ -479,6 +561,7 @@ in
           #custom-menu,
           #custom-power_vertical,
           #custom-power,
+          #custom-toggles_menu,
           #custom-swaync,
           #custom-updater,
           #custom-weather,
@@ -496,6 +579,13 @@ in
           	padding-bottom: 3px;
           	padding-right: 5px;
           	padding-left: 5px;
+          }
+
+          /* Ensure the gear icon isn't clipped on the right edge */
+          #custom-toggles_menu {
+            margin-right: 2px;
+            min-height: 24px;
+            min-width: 18px;
           }
 
           #idle_inhibitor {
