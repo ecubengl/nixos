@@ -163,7 +163,10 @@ rec {
     path = ./zig;
     description = "Zig development environment";
   };
-
+  python-bun = {
+    path = ./python-bun;
+    description = "Python development environment with Bun installed";
+  };
   # Aliases
   c = c-cpp;
   cpp = c-cpp;
