@@ -1,6 +1,7 @@
 { pkgs, inputs, ... }:
 {
   environment.systemPackages = with pkgs; [
+    oneko
     obsidian
     protonvpn-gui # VPN
     github-desktop

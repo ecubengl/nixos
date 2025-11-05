@@ -286,6 +286,8 @@ in
                 "workspace 3, class:^(firefox|floorp|zen|librewolf)$"
                 "workspace 6, title:(.*)(discord)(.*)$"
                 "workspace 9, title:(.*)(AyuGram)(.*)$"
+                "workspace 10, title:(.*)(btop++)(.*)$"
+                "workspace 5, title:(.*)(Thorium)(*.*)$"
 
                 "workspace 9, class:^(Spotify)$"
                 "workspace 9, title:(.*)(Spotify)(.*)$"
